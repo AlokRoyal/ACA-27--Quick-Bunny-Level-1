@@ -1,23 +1,37 @@
 # Quick Bunny — Level 1
 
-A keyboard-controlled obstacle course built with p5.js and p5.play. Move the blue bunny across the playfield to reach the orange food while avoiding two horizontally moving obstacles.
+![JavaScript](https://img.shields.io/badge/JavaScript-p5.js-FB7D24?logo=p5dotjs&logoColor=white)
+![Game](https://img.shields.io/badge/type-browser%20game-4C8EDA)
 
-## How to play
+A keyboard-controlled obstacle course built with p5.js and p5.play. Guide a blue bunny from the lower-left of the canvas toward orange food in the upper-right while avoiding two moving obstacles.
 
-- Use the arrow keys to move.
-- Reach the food near the upper-right corner to display a win message.
-- Touching either obstacle returns the bunny to its lower-left starting point.
+## Play
 
-The game uses a 600 × 600 canvas. Obstacles bounce at the side edges, and edge sprites keep the bunny within the playfield.
+- Use the arrow keys to move the bunny.
+- Reach the food to display the win message.
+- Touching either obstacle resets the bunny to the starting position.
 
-## Code map
+The game uses a 600 × 600 canvas. The two horizontal obstacles move in opposite directions and bounce at the side boundaries.
 
-index.html loads the game libraries and sketch.js. sketch.js creates the player, target, and obstacles, handles keyboard input and collision checks, and draws each frame. CSS/ and lib/ contain the stylesheet and browser libraries.
+## How it works
 
-## Run
+index.html loads the local game libraries and sketch.js. In sketch.js, setup() creates edge sprites, the player, the food, and obstacles. draw() reads keyboard input, applies movement, checks collisions, and renders the sprites.
 
-Open index.html in a browser with the repository folders intact. No build step or package install is required. Use a local static server if your browser does not load local scripts from a file URL.
+## Architecture
 
-## Technology
+Keyboard input → bunny sprite movement → edge and obstacle collision checks → canvas rendering
 
-HTML, CSS, JavaScript, p5.js, and p5.play. Game state exists only while the page is open; there is no backend or saved progress.
+## Start locally
+
+Open index.html in a browser with the repository folders intact. No package installation or build step is required. If local scripts are blocked from a file URL, serve the folder with a local static server.
+
+## Project layout
+
+- index.html — browser entry point
+- sketch.js — game setup, controls, hazards, and collision logic
+- CSS/ — stylesheet
+- lib/ — p5.js and p5.play libraries
+
+## Limitations
+
+This is an introductory prototype. It has no levels, persistent score, sound effects, or backend. The repository does not define automated tests.
